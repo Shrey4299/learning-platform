@@ -66,7 +66,14 @@
       <div>
         <ul class="nav">
           <li><a class="active" href="/">Home</a></li>
-          <li><a href="/room/1">rooms</a></li>
+
+      {% for room in rooms %}
+          
+        {% if forloop.first %}
+          <li><a href="{% url 'room' room.id %}">rooms</a></li>
+          {% endif %}
+      {% endfor %}
+          
           <li><a href="#contact">Contact</a></li>
           <li><a href="/about">About</a></li>
           <form method="GET" action="{% url 'home' %}">

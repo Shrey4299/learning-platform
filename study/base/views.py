@@ -81,7 +81,7 @@ def home(request):
     context = {'rooms': rooms ,'topics' : topics ,'room_count' : room_count}
     return render(request, 'base/home.html', context)
 
-def about(request):
+def aboutus(request):
     return render(request, 'base/about.html')
 
 def room(request, pk):
@@ -106,7 +106,7 @@ def room(request, pk):
 def createRoom(request):
     form = RoomForm()
     if request.method == 'POST':
-        form = RoomForm(request.POST)
+        form = RoomForm(request.POST , request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home')

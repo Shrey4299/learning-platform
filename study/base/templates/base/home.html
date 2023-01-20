@@ -30,32 +30,34 @@
 
     <div>
       {% for room in rooms %}
+      
       <div>
-        {% if request.user == room.host or request.user == 1 %}
-        <a href="{% url 'update-room' room.id %}">Edit</a>
-        <a href="{% url 'delete-room' room.id %}">Delete</a>
-        {% endif %}
-
-        <span>@{{room.host.username}}</span>
-        <div>{{room.description}}</div>
-
         <h5>
           {{room.id}} --
           <a href=" {% url 'room' room.id %}"> {{room.name}} </a>
         </h5>
         <small>{{room.topic.name}}</small>
+        <span>@{{room.host.username}}</span>
+
+        {% if request.user == room.host or request.user == "shrey619" %}
+
+        <a href="{% url 'update-room' room.id %}">Edit</a>
+        <a href="{% url 'delete-room' room.id %}">Delete</a>
+        {% endif %}
+        <br>
+        {% if room.room_image %}
+        <img src="{{room.room_image.url }}" alt="no image" width="500" />
+        {% endif %}
+        <br>
+        <br>
+        <div>{{room.description}}</div>
       </div>
 
       <hr />
 
-    {% endfor %}
-
+      {% endfor %}
     </div>
 
-{% endblock content %}
-
+    {% endblock content %}
   </div>
-
-
 </div>
-

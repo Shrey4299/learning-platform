@@ -21,8 +21,7 @@ class Room(models.Model):
         User, related_name='participants', blank=True)
     update = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    # image = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-
+    room_image = models.ImageField(null=True, blank=True , upload_to ="images/")
     def __str__(self):
         return self.name
 

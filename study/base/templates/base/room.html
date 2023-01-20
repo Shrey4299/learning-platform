@@ -10,6 +10,12 @@
   <div>
     <h1>{{room.name}}</h1>
 
+    <br>
+    {% if room.room_image %}
+    <img src="{{room.room_image.url }}" alt="no image" width="500" />
+    {% endif %}
+    <br>
+
     <p>{{room.description}}</p>
 
     <div class="comment-wrapper">
@@ -52,6 +58,7 @@
     </div>
     {% endfor %}
   </div>
+  <a href="{% url 'room' %}/">next</a>
 </div>
 
 {% endblock content %}

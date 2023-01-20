@@ -11,7 +11,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('room/<int:pk>/', views.room, name= "room" ),
     path('create-room/', views.createRoom, name= "create-room" ),
-    path('about/', views.about, name= "about" ),
+    path('aboutus/', views.aboutus, name= "about" ),
 
     path('update-room/<int:pk>', views.updateRoom, name= "update-room" ),
     path('delete-room/<int:pk>', views.deleteRoom, name= "delete-room" ),
